@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "shopLayout"
+  "defaultProject": "shopLayout",
+  "cli": {
+    "analytics": false
+  }
 }

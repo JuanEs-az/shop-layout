@@ -1,0 +1,22 @@
+.items{
+    display:flex;
+    width: 80%;
+    margin: 0px auto;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    .item{
+        margin: 20px;
+        width: 200px;
+        height: 250px;
+        border: 2px solid #393939;
+        background-color: #202020;
+    }
+}
+@media(max-width:765px){
+    .items{
+        width: 100%;
+        .item{
+            flex-grow: 1;
+        }
+    }
+}

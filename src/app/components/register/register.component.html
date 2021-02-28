@@ -1,0 +1,28 @@
+<h1 class="title">Registrate</h1>
+<div class="join-container common-container">
+    <form #registroUsuario="ngForm" (ngSubmit)="onSubmit()">
+        <label for="name">Nombre: </label>
+        <input type="text" name="name" #name="ngModel" [(ngModel)]="userR.name" placeholder="Ingrese su nombre completo" required/>
+        <span *ngIf="name.touched && !name.valid" class="alert">-El nombre es requerido</span>
+
+        <label for="nick">Usuario: </label>
+        <input type="text" name="nick" #nick="ngModel" [(ngModel)]="userR.nick" placeholder="Ingrese su nombre de usuario" required> 
+        <span *ngIf="nick.touched && !nick.valid" class="alert">-El usuario es requerido</span>
+
+        <label for="email">Correo Electronico: </label>
+        <input type="email" name="email" #email="ngModel" [(ngModel)]="userR.email" placeholder="Ingrese su e-mail" required >
+        <span *ngIf="email.touched && !email.valid" class="alert">-El usuario es requerido</span>
+
+        <label for="password">Contraseña: </label>
+        <input type="password" name="password" #password="ngModel" [(ngModel)]="userR.password" placeholder="Ingrese su contraseña" required minlength="8"/>
+        <span *ngIf="password.touched && !password.valid" class="alert">-La contraseña es requerida<br/>-Debe tener como minimo 8 caracteres</span>
+
+        <label for="image">Foto de Perfil: </label>
+        <input type="file" name="image" (change)="fileChange($event)"/>
+
+        <input type="submit" [disabled]="!registroUsuario.form.valid" value="Registrarme">
+    </form>
+</div>
+<div class="join-container common-container">
+    ¿Ya tienes una cuenta? <a [routerLink]="['/login']">Inicia sesión aquí</a>
+</div>
