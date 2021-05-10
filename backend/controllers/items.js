@@ -74,6 +74,23 @@ var itemController = {
             }
         })
     },
+    //Obtiene por post un body con los filtros que sean (body: *prop)
+    // RUTA: /items/filter POST
+    filterItems: function(req,res){
+        filter = req.body
+        Item.find(filter,(err,result) => {
+            if(err){
+                return res.status(500)
+                          .send({error:true,type:500})
+            }else if(!result){
+                return res.status(404)
+                          .send({error:true,type:404})
+            }else{
+                return res.status(200)
+                          .send({error:false,got:result})
+            }
+        })
+    },
     //Actualizar item (params: id) (body:name,description,type,price,quantity,provider)
     //RUTA: /items/update/:id  PUT
     update: function(req,res){

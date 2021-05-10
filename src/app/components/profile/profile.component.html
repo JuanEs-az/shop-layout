@@ -1,0 +1,18 @@
+<h1 class="title">Perfil</h1>
+<div class="container">
+  <div class="panel">
+    <h1 class="title">Opciones</h1>
+    <ul class="options">
+        <li><a [routerLink]="['personal-data']">Mis datos</a></li>
+        <li><a [routerLink]="['security']">Seguridad</a></li>
+        <li><a [routerLink]="['products']">Mis Productos</a></li>
+        <li><a [routerLink]="['products/upload']">Subir producto</a></li>
+        <li><a href="#" (click)= "logout()">Cerrar sesión</a></li>
+    </ul>
+  </div>
+
+  <div class="display">
+      <router-outlet></router-outlet>
+  </div>
+</div>
+

@@ -9,13 +9,15 @@ import { WindowRef } from './services/window.service'
 })
 export class AppComponent implements OnInit{
   //Usar el objeto window para guardar la variable de forma global en window.user
+  public title = "shopLayout"
   public user:any
   private _wd:any
   constructor(private _userService:UserService,private _windowService:WindowRef){
     this._wd = _windowService.nativeWindow
   }
   ngOnInit(){
-    if(localStorage.getItem("id") && !this._wd.user){
+
+    if(localStorage.id && !this._wd.user){
       this._userService.getUser({_id:localStorage.getItem("id")}).subscribe(
       (result) => {
         this._wd.user = result.got
